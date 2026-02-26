@@ -43,10 +43,10 @@ function Home() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            className="text-[#ffffffa8] text-center w-[70%]">
-                            <h1 className="text-7xl font-bold">Adeshina Ahmed</h1>
+                            className="text-[#ffffffa8] text-center md:w-[70%] w-[90%] text-pretty mt-20 md:mt-0 mx-auto">
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">Adeshina Ahmed</h1>
                             <h2 className="text-2xl font-bold my-5 text-purple-300">Front End Web Developer</h2>
-                            <p className="text-pretty text-center">Results-driven Front-End Developer specializing in React and Next.js, with hands-on expertise crafting high-performance, responsive user interfaces using Tailwind CSS for rapid development and consistent design systems. Proven ability to translate Figma designs into pixel-perfect, accessible, and mobile-first experiences that boost user engagement and reduce development time.</p>
+                            <p className="text-pretty text-center text-sm md:text-base">Results-driven Front-End Developer specializing in React and Next.js, with hands-on expertise crafting high-performance, responsive user interfaces using Tailwind CSS for rapid development and consistent design systems. Proven ability to translate Figma designs into pixel-perfect, accessible, and mobile-first experiences that boost user engagement and reduce development time.</p>
                         </motion.div>
                     </div>
                     <div className="">
@@ -56,7 +56,7 @@ function Home() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            className="flex flex-col md:flex-row justify-center items-center mt-10 mb-5 gap-5">
+                            className="flex  md:flex-row justify-center items-center mt-10 mb-5 gap-5 flex-wrap">
                             <Link to="mailto:adeshinaahmed60@gmail.com" className="text-center  shadow-purple-700/50 text-white font-bold py-2 px-5 rounded-full border border-purple-300 hover:bg-[#160016] transition-all duration-300 "><FontAwesomeIcon icon={faAt} className="text-purple-700 mr-2" />Email me</Link>
                             <Link to="https://github.com/seriesAde" className="text-center shadow-md shadow-purple-700/50 text-white font-bold py-2 px-5 rounded-full bg-purple-600 hover:bg-purple-400 transition-all duration-300 "><FontAwesomeIcon icon={faGithub} className="text-white mr-2" />GitHub</Link>
                             <Link to="http://linkedin.com/in/adeshina-ahmed-a00a3029a" className="text-center  shadow-purple-700/50 text-white font-bold py-2 px-5 rounded-full border border-purple-300  hover:bg-[#160016] transition-all duration-300 "><FontAwesomeIcon icon={faLinkedin} className="text-purple-700 mr-2" />LinkedIn</Link>
@@ -100,7 +100,14 @@ function Home() {
                 </motion.div>
             </div>
             <div className="bg-[#1a111a] text-white py-5">
-                <h1 className="text-3xl font-bold mb-5 text-center capitalize">Work history</h1>
+                <motion.div
+                    initial={{ opacity: 0, y: -100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    <h1 className="text-3xl font-bold mb-5 text-center capitalize">Work history</h1>
+                </motion.div>
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -125,6 +132,7 @@ function Home() {
                         </ul>
                     </motion.div>
                     <motion.div variants={itemVariants} className="w-full rounded-lg border border-gray-300 p-5 bg-[#180a18]">
+
                         <h1 className="text-2xl font-bold"> Front-End Developer (NUHU Consult, Abuja ) </h1>
                         <p className="text-purple-400">Dec 2024 –  Mar 2025</p>
                         <ul className="list-disc list-inside space-y-5 leading-6 text-pretty">
@@ -145,7 +153,14 @@ function Home() {
             </div>
             <div className="bg-black">
                 <div className="w-[80%] mx-auto py-10 text-white ">
-                    <h1 className="capitalize text-3xl font-bold text-center">selected projects</h1>
+                    <motion.div
+                        initial={{ opacity: 0, x: 100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <h1 className="capitalize text-3xl font-bold text-center">selected projects</h1>
+                    </motion.div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
                         <motion.div
                             initial={{ opacity: 0, x: -100 }}
