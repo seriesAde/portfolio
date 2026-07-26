@@ -8,7 +8,7 @@ const projects = [
         title: "Inventory Management System API",
         tag: "Node/Express",
         description: "A multi-warehouse stock management API for wholesale and retail businesses, with role-based access, transactional stock updates, and auditable inventory tracking.",
-        link: "https://github.com/seriesAde/inventorySystem.gitgit ",
+        link: "https://github.com/seriesAde/inventorySystem.git ",
         linkLabel: "view repo",
     },
     {
