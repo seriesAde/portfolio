@@ -1,33 +1,60 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faReact, faHtml5, faCss3, faNodeJs } from "@fortawesome/free-brands-svg-icons";
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "../lib/motionVariants";
-
-function TechStack() {
-    return (
-        <div className="bg-[#0c000c] text-white border-t border-b border-gray-700">
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                animate={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                variants={containerVariants}
-                className="w-[70%] mx-auto flex flex-col md:flex-row items-center justify-center gap-5 py-10">
-                <motion.div variants={itemVariants} className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faReact} className="text-purple-400" /> <p>React/Next.js</p>
-                </motion.div>
-                <motion.div variants={itemVariants} className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faNodeJs} className="text-purple-400" /> <p>Node.js/Express</p>
-                </motion.div>
-                <motion.div variants={itemVariants} className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faHtml5} className="text-purple-400" /> <p>HTML</p>
-                </motion.div>
-                <motion.div variants={itemVariants} className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faCss3} className="text-purple-400" /> <p>CSS</p>
-                </motion.div>
-            </motion.div>
+import { SectionHeading } from './Shared';
+const groups = {
+  Frontend: [
+    'React.js',
+    'Next.js',
+    'TypeScript',
+    'JavaScript ES6+',
+    'HTML5',
+    'CSS3',
+  ],
+  Backend: [
+    'Node.js',
+    'Express.js',
+    'REST API Design',
+    'JWT Authentication',
+    'Role-Based Access Control',
+  ],
+  Database: [
+    'MongoDB',
+    'Mongoose',
+    'MySQL',
+    'Relational and ERD Data Modeling',
+  ],
+  'State Management': ['Redux Toolkit', 'React Query'],
+  Styling: ['Tailwind CSS', 'Bootstrap', 'Responsive Design'],
+  'Cloud and Deployment': ['AWS', 'Vercel', 'Render'],
+  Tools: ['Git', 'GitHub', 'Vite', 'Axios', 'Postman'],
+};
+export default function TechStack() {
+  return (
+    <section id="skills" className="border-y border-white/10 bg-[#0d0d15]">
+      <div className="shell section-space">
+        <SectionHeading
+          number="04"
+          eyebrow="Skills"
+          title="The tools behind the work."
+        >
+          A practical toolkit for building across the application.
+        </SectionHeading>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {Object.entries(groups).map(([name, skills]) => (
+            <div
+              key={name}
+              className="rounded-xl border border-white/15 bg-[#11111b] p-6"
+            >
+              <h3 className="mb-4 text-lg font-semibold">{name}</h3>
+              <ul className="flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <li key={skill} className="badge">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-    );
+      </div>
+    </section>
+  );
 }
-
-export default TechStack;

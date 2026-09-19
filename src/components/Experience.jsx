@@ -1,71 +1,73 @@
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "../lib/motionVariants";
-
+import { SectionHeading } from './Shared';
 const jobs = [
-    {
-        title: "Part-Time Full-Stack Developer (OAT, Remote)",
-        dates: "Nov 2025 – Present",
-        points: [
-            "Maintain backend functionality for a multi-module ERP system, building and extending REST API endpoints and server-side logic using Node.js and Express.js.",
-            "Resolve backend bugs across authentication, data, and business-logic layers, using Postman for endpoint testing and validation.",
-            "Implement and maintain role-based permissions to enforce secure, role-appropriate data access across ERP modules.",
-        ],
-    },
-    {
-        title: "Front-End Developer (Techspare, Abuja)",
-        dates: "Jan 2025 – Present",
-        points: [
-            "Designed and developed responsive, immersive front-end interfaces using React.js, Next.js, HTML5, and CSS3, delivering seamless, high-performance user experiences across all devices.",
-            "Implemented React Query and state management (Redux Toolkit) for efficient data fetching and consistent workflows.",
-            "Collaborated closely with clients to translate requirements into pixel-perfect, intuitive UIs, prioritizing accessibility, performance, cross-browser compatibility, and optimal user flows.",
-        ],
-    },
-    {
-        title: "Front-End Developer (NUHU Consult, Abuja)",
-        dates: "Dec 2024 – Mar 2025",
-        points: [
-            "Built and optimized responsive, dynamic front-end interfaces using React.js and Vite, delivering seamless and performant user experiences across devices.",
-            "Implemented intuitive, client-specified UI/UX layouts and interactive features with Tailwind CSS and Bootstrap, ensuring pixel-perfect alignment with brand guidelines and mobile-first design principles.",
-            "Accelerated UI development through utility-first workflows and clean, maintainable code, focusing on user-centric interactions and cross-device consistency.",
-        ],
-    },
+  {
+    title: 'Part-Time Full-Stack Developer',
+    company: 'OAT (Brix and Towers)',
+    location: 'Remote',
+    dates: 'Nov 2025 – Present',
+    points: [
+      'Maintain backend functionality for a multi-module ERP platform, extending REST endpoints and server-side logic with Node.js and Express.js.',
+      'Resolve bugs across authentication, data and business logic, using Postman to test and validate endpoints.',
+      'Maintain role-based permissions for role-appropriate access across ERP modules.',
+    ],
+  },
+  {
+    title: 'Contract Front-End Developer',
+    company: 'Techspare',
+    location: 'Abuja, Nigeria',
+    dates: 'Jan 2025 – Jun 2026',
+    points: [
+      'Built responsive interfaces with React.js, Next.js, HTML5 and CSS3.',
+      'Implemented React Query and Redux Toolkit for data fetching and consistent application state.',
+      'Translated client requirements into accessible interfaces with attention to cross-browser behaviour and user flows.',
+    ],
+  },
+  {
+    title: 'Intern and Contract Front-End Developer',
+    company: 'NUHU Consult',
+    location: 'Abuja, Nigeria',
+    dates: 'Dec 2024 – Mar 2025',
+    points: [
+      'Built responsive interfaces and interactive features using React.js and Vite.',
+      'Implemented client-specified layouts with Tailwind CSS and Bootstrap.',
+      'Maintained reusable interface code and consistent layouts across screen sizes.',
+    ],
+  },
 ];
-
-function Experience() {
-    return (
-        <div className="bg-[#1a111a] text-white py-5">
-            <motion.div
-                initial={{ opacity: 0, y: -100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
+export default function Experience() {
+  return (
+    <section id="experience" className="border-y border-white/10 bg-[#0d0d15]">
+      <div className="shell section-space">
+        <SectionHeading
+          number="02"
+          eyebrow="Experience"
+          title="Putting the work into practice."
+        />
+        <div className="space-y-5">
+          {jobs.map((job, index) => (
+            <article
+              key={job.company}
+              className="grid gap-5 rounded-xl border border-white/15 bg-[#11111b] p-6 sm:p-8 lg:grid-cols-[230px_1fr]"
             >
-                <h1 className="text-3xl font-bold mb-5 text-center capitalize">Work history</h1>
-            </motion.div>
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                animate={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                variants={containerVariants}
-                className="flex flex-col md:flex-row gap-5 w-[80%] mx-auto">
-                {jobs.map((job) => (
-                    <motion.div
-                        key={job.title}
-                        variants={itemVariants}
-                        className="w-full rounded-lg border border-gray-300 p-5 bg-[#180a18]">
-                        <h1 className="text-2xl font-bold">{job.title}</h1>
-                        <p className="text-purple-400">{job.dates}</p>
-                        <ul className="list-disc list-inside space-y-5 leading-6 text-pretty">
-                            {job.points.map((point) => (
-                                <li key={point}>{point}</li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                ))}
-            </motion.div>
+              <div>
+                <p className="mb-3 font-mono text-xs text-violet-300">
+                  0{index + 1} / {job.dates}
+                </p>
+                <p className="text-xl font-semibold">{job.company}</p>
+                <p className="mt-1 text-sm text-slate-300">{job.location}</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold">{job.title}</h3>
+                <ul className="mt-4 list-disc space-y-3 pl-5 text-slate-300 marker:text-violet-300">
+                  {job.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
         </div>
-    );
+      </div>
+    </section>
+  );
 }
-
-export default Experience;

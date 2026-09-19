@@ -1,37 +1,35 @@
-import { motion } from "framer-motion";
-
-function About() {
-    return (
-        <div className="bg-[black] text-white py-10">
-            <motion.div
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                className="w-[80%] mx-auto">
-                <h1 className="text-3xl font-bold mb-5 text-purple-400">About Me</h1>
-                <div className="flex-col gap-10 md:gap-5 text-pretty md:flex-col lg:flex-row flex">
-                    <div className="w-full">
-                        <p>
-                            I am a Full-Stack Developer based in Abuja, Nigeria, building responsive
-                            interfaces with React, Next.js, and Tailwind CSS, paired with backend systems
-                            in Node.js, Express.js, and MongoDB. I currently maintain backend functionality
-                            for a multi-module ERP system, and have independently designed REST APIs for
-                            inventory and school management platforms.
-                        </p>
-                    </div>
-                    <div className="w-full">
-                        <p>
-                            I focus on writing clean, maintainable code across the stack — from
-                            pixel-perfect, accessible UI implementation to REST API design, authentication,
-                            and data modeling. I enjoy solving problems end-to-end, from how an interface
-                            feels to how the data behind it stays consistent and secure.
-                        </p>
-                    </div>
-                </div>
-            </motion.div>
+import { SectionHeading } from './Shared';
+export default function About() {
+  return (
+    <section id="about" className="shell section-space">
+      <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+        <SectionHeading
+          number="01"
+          eyebrow="About"
+          title="Thoughtful interfaces. Reliable foundations."
+        />
+        <div className="max-w-2xl space-y-5 text-slate-300">
+          <p>
+            I am a Full-Stack Developer based in Abuja, Nigeria, building
+            responsive interfaces with React, Next.js and Tailwind CSS,
+            alongside backend systems using Node.js, Express.js and MongoDB. I
+            currently maintain backend functionality for a multi-module ERP
+            platform and have independently designed APIs for inventory and
+            school-management systems.
+          </p>
+          <p>
+            I focus on maintainable code, accessible interfaces, REST API
+            design, authentication and reliable data modelling. I enjoy solving
+            problems across the complete application—from how the interface
+            behaves to how the underlying data remains consistent and secure.
+          </p>
+          <div className="flex flex-wrap gap-2 pt-2">
+            <span className="badge">Accessible interfaces</span>
+            <span className="badge">REST API design</span>
+            <span className="badge">Data integrity</span>
+          </div>
         </div>
-    );
+      </div>
+    </section>
+  );
 }
-
-export default About;

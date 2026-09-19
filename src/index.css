@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+@theme {
+  --font-sans: 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+  }
+  body {
+    @apply m-0 bg-[#09090f] text-slate-100 antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  ::selection {
+    @apply bg-violet-300 text-[#09090f];
+  }
+  :focus-visible {
+    outline: 3px solid #c4b5fd;
+    outline-offset: 5px;
+    border-radius: 4px;
+  }
+  button,
+  summary {
+    cursor: pointer;
+  }
+  a,
+  button,
+  summary {
+    -webkit-tap-highlight-color: transparent;
+  }
+  section[id] {
+    scroll-margin-top: 12px;
+  }
+}
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .section-space {
+    @apply py-16 sm:py-20;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.16em] text-violet-300 uppercase;
+  }
+  .section-title {
+    @apply mt-4 text-3xl leading-tight font-semibold tracking-tight sm:text-4xl;
+  }
+  .button-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-3 rounded-lg border border-violet-500 bg-violet-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-violet-400 hover:bg-violet-600;
+  }
+  .button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-500 bg-white/5 px-4 py-2.5 text-sm font-medium text-slate-100 transition-colors hover:border-violet-300 hover:bg-violet-300/10;
+  }
+  .text-link {
+    @apply inline-flex min-h-11 items-center gap-1 text-sm font-medium text-violet-200 underline-offset-4 hover:text-white hover:underline;
+  }
+  .badge {
+    @apply inline-block rounded-md border border-white/15 bg-white/5 px-2.5 py-1 text-xs leading-5 text-slate-200;
+  }
+  .nav-link {
+    @apply relative flex min-h-11 items-center px-2 text-sm font-medium hover:text-white after:absolute after:right-2 after:bottom-1 after:left-2 after:h-0.5;
+  }
+  .monogram {
+    @apply flex h-11 w-12 items-center justify-center rounded-lg border border-violet-300/30 bg-violet-300/5 text-lg tracking-tight;
+  }
+  .skip-link {
+    @apply fixed top-3 left-4 z-[100] -translate-y-24 rounded-lg bg-violet-200 px-5 py-3 font-semibold text-black focus:translate-y-0;
+  }
+  .hero-section {
+    background: radial-gradient(ellipse at 75% 35%, #26153f80, transparent 58%);
+  }
+  .contact-panel {
+    background:
+      radial-gradient(ellipse at 100% 0%, #38205080, transparent 75%), #11111b;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
